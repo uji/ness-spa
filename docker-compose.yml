@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build: .
+    tty: true
+    working_dir: /repo
+    volumes:
+      - ness-spa:/repo
+volumes:
+  ness-spa:
+    external: true
