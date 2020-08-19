@@ -2,10 +2,14 @@ version: '3'
 services:
   app:
     build: .
-    tty: true
     working_dir: /repo
     volumes:
       - ness-spa:/repo
+    environment:
+      GITHUB_USER_NAME: ${GITHUB_USER_NAME}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      GITHUB_EMAIL: ${GITHUB_EMAIL}
+    tty: true
 volumes:
   ness-spa:
     external: true
