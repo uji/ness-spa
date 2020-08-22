@@ -7,5 +7,5 @@ ENV GITHUB_USER_NAME ""
 ENV GITHUB_TOKEN ""
 ENV GITHUB_EMAIL ""
 
-RUN yarn global add @vue/cli
+RUN yarn global add @vue/cli@next
 CMD ["bash", "init.sh"]
