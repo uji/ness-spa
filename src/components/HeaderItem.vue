@@ -1,7 +1,6 @@
 <template>
   <header id="header">
     <h1 class="headline">
-      <slide></slide>
       <a>NESS</a>
     </h1>
     <ul class="nav-list">
@@ -14,11 +13,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Slide from "vue-burger-menu";
 
-export default defineComponent({
-  components: { Slide }
-});
+export default defineComponent({});
 </script>
 
 <style scoped>
