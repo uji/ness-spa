@@ -1,18 +1,12 @@
 <template>
   <div id="app">
-    <HeaderItem></HeaderItem>
-    <router-view></router-view>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-import HeaderItem from "./components/HeaderItem.vue";
-
-export default defineComponent({
-  components: { HeaderItem }
-});
-</script>
 
 <style lang="scss">
 #app {

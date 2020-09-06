@@ -1,22 +1,13 @@
+import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-import ApolloClient from "apollo-boost";
-import { provide } from "@vue/composition-api";
-import { DefaultApolloClient } from "@vue/apollo-composable";
-import Vue from "vue";
 
-const apolloClient = new ApolloClient({
-  // You should use an absolute URL here
-  uri: "http://localhost:3000/query"
-});
+Vue.config.productionTip = false;
 
-const app = new Vue({
-  router, //追加
+new Vue({
+  router,
   store,
-  setup() {
-    provide(DefaultApolloClient, apolloClient);
-  },
-  render: h => h(App),
+  render: h => h(App)
 }).$mount("#app");
