@@ -1,20 +1,31 @@
 <template>
-  <header id="header">
-    <h1 class="headline">
-      <a>NESS</a>
-    </h1>
-    <ul class="nav-list">
-      <router-link tag="li" id="home-nav" to="/" exact class="nav-list-item">
-        <a> ホーム </a>
-      </router-link>
-    </ul>
-  </header>
+  <ul v-if="result && result.threads">
+    <li v-for="thread of result.threads" :key="thread.id">
+      {{ thread.id }} {{ thread.title }} {{ thread.closed }}
+    </li>
+  </ul>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script>
+import { useQuery } from "@vue/apollo-composable";
+import gql from "graphql-tag";
 
-export default defineComponent({});
+export default {
+  setup() {
+    const { result } = useQuery(gql`
+      query {
+        threads {
+          id
+          title
+          closed
+        }
+      }
+    `);
+    return {
+      result
+    };
+  }
+};
 </script>
 
 <style scoped>
