@@ -1956,6 +1956,14 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
+"@vue/apollo-composable@^4.0.0-alpha.10":
+  version "4.0.0-alpha.10"
+  resolved "https://registry.yarnpkg.com/@vue/apollo-composable/-/apollo-composable-4.0.0-alpha.10.tgz#17ad81552f55adde205cad982560ff120e92da87"
+  integrity sha512-PfbUFC+vCjtaRlhYJXekBD9x8yq/JGc/l0J9pEqvE5ZNAE5t6xUsSSdxiWt5bGo08slcdvVno7btydUWnIddBg==
+  dependencies:
+    throttle-debounce "^2.1.0"
+    vue-demi latest
+
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/@vue/babel-helper-vue-jsx-merge-props/download/@vue/babel-helper-vue-jsx-merge-props-1.0.0.tgz#048fe579958da408fb7a8b2a3ec050b50a661040"
@@ -12720,6 +12728,11 @@ vue-class-component@^8.0.0-0:
   version "8.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-8.0.0-alpha.6.tgz#395ec86e58001680306278fcef60e1ffe705a5bd"
   integrity sha512-bxugtly8bzgt0du09LjJnK6X5v8nhMi5ABw4KKy50Rv/UdaAZDCrThp6kBbtBXocMf4EnhlfRVf/N4g4CPDc/Q==
+
+vue-demi@latest:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.3.3.tgz#27d7ae33e1d82752418ecfded60e625c5cc81866"
+  integrity sha512-/CvXJUp7e41C/jS5ZgflMQgkY2qFX1ZkZq1kYwYH5RCC9gGy1vgvjsldtQlVORaAUt55+k/mQIUnUKNrLosoIw==
 
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.1.0:
   version "7.1.0"
