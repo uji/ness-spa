@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HeaderItem from "./components/HeaderItem.vue";
+import { defineComponent } from 'vue';
+import HeaderItem from './components/HeaderItem.vue';
 
 export default defineComponent({
   components: { HeaderItem }

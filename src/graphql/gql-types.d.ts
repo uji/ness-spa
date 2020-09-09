@@ -7,13 +7,13 @@ export type Scalars = {
 };
 
 export type Query = {
-  __typename?: "Query";
+  __typename?: 'Query';
   threads: Array<Threads>;
 };
 
 export type Threads = {
-  __typename?: "Threads";
-  id: Scalars["Strings"];
-  title: Scalars["String"];
-  closed: Scalars["Boolean"];
+  __typename?: 'Threads';
+  id: Scalars['Strings'];
+  title: Scalars['String'];
+  closed: Scalars['Boolean'];
 };

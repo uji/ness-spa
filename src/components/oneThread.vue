@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import "vue-apollo";
-import { Threads, Query } from "../graphql/gql-types";
+import 'vue-apollo';
+import { Threads, Query } from '../graphql/gql-types';
 // ↑自前定義していた interface の代わりに自動生成された型を使う。
 
 export default {
