@@ -4,7 +4,9 @@
     <div v-if="loading">Loading...</div>
     <ul v-else-if="result">
       <li v-for="thread of result.threads" :key="thread.id">
-        {{ thread.id }} {{ thread.title }} {{ thread.closed }}
+        <td>{{ thread.id }}</td>
+        <td>{{ thread.title }}</td>
+        <td>{{ thread.closed }}</td>
       </li>
     </ul>
   </div>
@@ -12,13 +14,10 @@
 
 <script lang="ts">
 import { defineComponent, watch } from 'vue';
-// import oneThread from '@/components/oneThread.vue'; // @ is an alias to /src
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
-// import { Thread } from '@/graphql/gql-types';
 
 export default defineComponent({
-  // components: { oneThread },
   setup() {
     const { result, loading } = useQuery(gql`
       query threads {
@@ -32,7 +31,7 @@ export default defineComponent({
     watch(
       () => result.value,
       (v) => {
-        console.log(v.threads[0].title, 'watch');
+        console.log(v, 'watch');
       }
     );
     return {
@@ -42,3 +41,12 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="scss">
+.home {
+  margin-top: 20px;
+}
+td {
+  padding-left: 20px;
+}
+</style>
