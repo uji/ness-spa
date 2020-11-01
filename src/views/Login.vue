@@ -77,8 +77,8 @@ export default defineComponent({
       if (user == null) {
         return;
       }
-      const value = await user.getIdToken();
-      document.cookie = 'auth-cookie=' + value;
+      const tokenString = await user.getIdToken();
+      document.cookie = 'auth-cookie=' + tokenString;
     });
   }
 });
