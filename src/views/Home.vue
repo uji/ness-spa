@@ -21,7 +21,7 @@ export default defineComponent({
   setup() {
     const { result, loading } = useQuery(gql`
       query threads {
-        threads {
+        threads(input: { closed: false }) {
           id
           title
         }
