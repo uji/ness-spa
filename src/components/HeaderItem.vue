@@ -53,7 +53,7 @@ header {
   height: 100px;
   width: 100%;
   padding: 15px 0;
-  background-color: #ffc738;
+  background-color: #f1f1f1;
   color: black;
 }
 header .headline {

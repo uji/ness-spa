@@ -3,7 +3,6 @@
        Your app may use that space for branding, controls and other   customizations.-->
   <h1>Welcome to My Awesome App</h1>
   <div id="firebaseui-auth-container"></div>
-  <div id="loader">Loading...</div>
 </template>
 
 <script lang="ts">
@@ -12,6 +11,8 @@ import { defineComponent, onMounted } from 'vue';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import * as firebaseui from 'firebaseui';
+// import { CookieWriteConverter } from '@types/js-cookie';
+// import * as Cookies from '@types/js-cookie';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -71,6 +72,13 @@ export default defineComponent({
       });
       // The start method will wait until the DOM is loaded.
       // ui.start('#firebaseui-auth-container', uiConfig);
+    });
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user == null) {
+        return;
+      }
+      const value = await user.getIdToken();
+      document.cookie = 'auth-cookie=' + value;
     });
   }
 });
