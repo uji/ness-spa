@@ -25,6 +25,15 @@
       >
         <a> About </a>
       </router-link>
+      <router-link
+        tag="li"
+        id="login-nav"
+        to="/login"
+        exact
+        class="nav-list-item"
+      >
+        <a> Login </a>
+      </router-link>
     </ul>
   </header>
 </template>
