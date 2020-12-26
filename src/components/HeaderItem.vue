@@ -1,11 +1,38 @@
 <template>
   <header id="header">
     <h1 class="headline">
-      <a>NESS</a>
+      <a> NESS </a>
     </h1>
     <ul class="nav-list">
       <router-link tag="li" id="home-nav" to="/" exact class="nav-list-item">
         <a> ホーム </a>
+      </router-link>
+      <router-link
+        tag="li"
+        id="Post-nav"
+        to="/post"
+        exact
+        class="nav-list-item"
+      >
+        <a> 投稿 </a>
+      </router-link>
+      <router-link
+        tag="li"
+        id="about-nav"
+        to="/about"
+        exact
+        class="nav-list-item"
+      >
+        <a> About </a>
+      </router-link>
+      <router-link
+        tag="li"
+        id="login-nav"
+        to="/login"
+        exact
+        class="nav-list-item"
+      >
+        <a> Login </a>
       </router-link>
     </ul>
   </header>
@@ -26,7 +53,7 @@ header {
   height: 100px;
   width: 100%;
   padding: 15px 0;
-  background-color: #ffc738;
+  background-color: #f1f1f1;
   color: black;
 }
 header .headline {
