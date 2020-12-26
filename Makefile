@@ -8,6 +8,12 @@ up:
 down:
 	docker-compose down
 
+start:
+	docker-compose start
+
+stop:
+	docker-compose stop
+
 bash:
 	make up
 	docker-compose exec app bash
