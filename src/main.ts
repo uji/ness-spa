@@ -5,7 +5,7 @@ import router from './router';
 import store from './store';
 import { DefaultApolloClient } from '@vue/apollo-composable';
 import { apolloClient } from '@/graphql/client';
-import { firebaseConfig } from '@/firebase/config'
+import { firebaseConfig } from '@/firebase/config';
 import * as firebase from 'firebase/app';
 import * as firebaseui from 'firebaseui';
 

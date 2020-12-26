@@ -11,7 +11,7 @@ import { defineComponent, onMounted } from 'vue';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { authUI } from '@/main';
-import { uiConfig } from '@/firebase/ui'
+// import { uiConfig } from '@/firebase/ui'
 
 export default defineComponent({
   setup() {
@@ -32,7 +32,7 @@ export default defineComponent({
         return;
       }
       const idToken = await user.getIdToken();
-      localStorage.setItem('idToken', idToken)
+      localStorage.setItem('idToken', idToken);
     });
   }
 });
