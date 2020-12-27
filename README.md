@@ -29,7 +29,7 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn dev
 ```
 
 ### Compiles and minifies for production
@@ -37,9 +37,14 @@ yarn serve
 yarn build
 ```
 
-### Lints and fixes files
+### Lints files
 ```
 yarn lint
+```
+
+### Lints and fixes files
+```
+yarn fmt
 ```
 
 ### Customize configuration
