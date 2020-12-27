@@ -1,7 +1,7 @@
 {
   "name": "ness-spa",
   "scripts": {
-    "dev": "nuxt -p 8080",
+    "dev": "nuxt --hostname '0.0.0.0' -p 8080",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "start": "nuxt start"

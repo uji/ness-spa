@@ -1,4 +1,4 @@
-FROM node:14.8.0
+FROM node:lts
 
 COPY . /repo
 WORKDIR /repo
