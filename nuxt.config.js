@@ -1,3 +1,3 @@
 export default {
-  mode: 'spa'
-}
+  mode: "spa",
+};
