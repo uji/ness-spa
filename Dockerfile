@@ -1,4 +1,4 @@
-FROM node:14.8.0
+FROM node:lts
 
 COPY . /repo
 WORKDIR /repo
@@ -7,5 +7,4 @@ ENV GITHUB_USER_NAME ""
 ENV GITHUB_TOKEN ""
 ENV GITHUB_EMAIL ""
 
-RUN yarn global add @vue/cli@next
 CMD ["bash", "init.sh"]
