@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import gql from 'graphql-tag'
+// import { ThreadsDocument } from '~/generated/graphql'
 
 const openThreadsQuery = gql`
 query{

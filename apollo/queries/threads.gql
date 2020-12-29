@@ -1,0 +1,9 @@
+query threads {
+  threads(input: {closed: false}){
+    id
+    title
+    createdAt
+    updatedAt
+    closed
+  }
+}

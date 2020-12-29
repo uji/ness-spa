@@ -1,3 +1,4 @@
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -88,3 +89,17 @@ export type MutationOpenThreadArgs = {
 export type MutationCloseThreadArgs = {
   input: CloseThread;
 };
+
+export type ThreadsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ThreadsQuery = (
+  { __typename?: 'Query' }
+  & { threads: Array<(
+    { __typename?: 'Thread' }
+    & Pick<Thread, 'id' | 'title' | 'createdAt' | 'updatedAt' | 'closed'>
+  )> }
+);
+
+
+export const ThreadsDocument: DocumentNode<ThreadsQuery, ThreadsQueryVariables> = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"threads"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"threads"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"closed"},"value":{"kind":"BooleanValue","value":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"closed"}}]}}]}}]};

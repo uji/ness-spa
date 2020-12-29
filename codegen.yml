@@ -1,6 +1,9 @@
 overwrite: true
-schema: "apollo/schema.graphqls"
+schema: apollo/schema.graphqls
+documents: apollo/queries/*.gql
 generates:
-  lib/GraphQL/generated.ts:
+  generated/graphql.d.ts:
     plugins:
-      - "typescript"
+      - typescript
+      - typescript-operations
+      - typed-document-node
