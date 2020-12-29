@@ -1,5 +1,5 @@
 overwrite: true
-schema: "graphql/schema.graphqls"
+schema: "apollo/schema.graphqls"
 generates:
   lib/GraphQL/generated.ts:
     plugins:
