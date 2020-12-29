@@ -21,3 +21,7 @@ bash:
 clean:
 	make down
 	docker volume rm ness-spa
+
+codegen:
+	wget https://raw.githubusercontent.com/uji/ness-api-function/master/graph/schema.graphqls -O graphql/schema.graphqls
+	yarn codegen

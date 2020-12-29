@@ -8,7 +8,8 @@
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "fmt": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "story": "nuxt-ts storybook --host '0.0.0.0' -p 8080"
+    "story": "nuxt-ts storybook --host '0.0.0.0' -p 8080",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
@@ -17,6 +18,8 @@
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.20.0",
+    "@graphql-codegen/typescript": "^1.19.0",
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^3.1.0",
