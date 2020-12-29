@@ -14,15 +14,15 @@ import gql from 'graphql-tag'
 // import { ThreadsDocument } from '~/generated/graphql'
 
 const openThreadsQuery = gql`
-query{
-  threads(input: {closed: false}){
-    id
-    title
-    createdAt
-    updatedAt
-    closed
+  query {
+    threads(input: { closed: false }) {
+      id
+      title
+      createdAt
+      updatedAt
+      closed
+    }
   }
-}
 `
 
 export default {
