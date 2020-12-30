@@ -4,4 +4,10 @@ export default {
   storybook: {
     // Options
   },
+  modules: ['@nuxtjs/apollo'],
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/apolloConfig.js',
+    },
+  },
 }

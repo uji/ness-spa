@@ -1,0 +1,6 @@
+overwrite: true
+schema: "apollo/schema.graphqls"
+generates:
+  lib/GraphQL/generated.ts:
+    plugins:
+      - "typescript"
