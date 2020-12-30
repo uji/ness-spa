@@ -1,4 +1,4 @@
-query threads {
+query threadList {
   threads(input: {closed: false}){
     id
     title

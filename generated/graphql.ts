@@ -93,10 +93,10 @@ export type MutationCloseThreadArgs = {
   input: CloseThread;
 };
 
-export type ThreadsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ThreadListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ThreadsQuery = (
+export type ThreadListQuery = (
   { __typename?: 'Query' }
   & { threads: Array<(
     { __typename?: 'Thread' }
@@ -105,8 +105,8 @@ export type ThreadsQuery = (
 );
 
 
-export const ThreadsDocument = gql`
-    query threads {
+export const ThreadListDocument = gql`
+    query threadList {
   threads(input: {closed: false}) {
     id
     title
@@ -118,18 +118,18 @@ export const ThreadsDocument = gql`
     `;
 
 /**
- * __useThreadsQuery__
+ * __useThreadListQuery__
  *
- * To run a query within a Vue component, call `useThreadsQuery` and pass it any options that fit your needs.
- * When your component renders, `useThreadsQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * To run a query within a Vue component, call `useThreadListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useThreadListQuery` returns an object from Apollo Client that contains result, loading and error properties
  * you can use to render your UI.
  *
  * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
  *
  * @example
- * const { result, loading, error } = useThreadsQuery();
+ * const { result, loading, error } = useThreadListQuery();
  */
-export function useThreadsQuery(options: VueApolloComposable.UseQueryOptions<ThreadsQuery, ThreadsQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<ThreadsQuery, ThreadsQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<ThreadsQuery, ThreadsQueryVariables>> = {}) {
-  return VueApolloComposable.useQuery<ThreadsQuery, ThreadsQueryVariables>(ThreadsDocument, {}, options);
+export function useThreadListQuery(options: VueApolloComposable.UseQueryOptions<ThreadListQuery, ThreadListQueryVariables> | VueCompositionApi.Ref<VueApolloComposable.UseQueryOptions<ThreadListQuery, ThreadListQueryVariables>> | ReactiveFunction<VueApolloComposable.UseQueryOptions<ThreadListQuery, ThreadListQueryVariables>> = {}) {
+  return VueApolloComposable.useQuery<ThreadListQuery, ThreadListQueryVariables>(ThreadListDocument, {}, options);
 }
-export type ThreadsQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<ThreadsQuery, ThreadsQueryVariables>;
+export type ThreadListQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<ThreadListQuery, ThreadListQueryVariables>;

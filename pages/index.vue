@@ -13,11 +13,11 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import { useThreadsQuery } from '@/generated/graphql'
+import { useThreadListQuery } from '@/generated/graphql'
 
 export default defineComponent({
   setup() {
-    const { result, loading, error } = useThreadsQuery()
+    const { result, loading, error } = useThreadListQuery()
 
     return {
       loading,
