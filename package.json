@@ -12,21 +12,19 @@
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@graphql-codegen/typescript-vue-apollo": "^2.3.1",
     "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@vue/apollo-composable": "^4.0.0-alpha.12",
     "@vue/composition-api": "^1.0.0-beta.22",
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "apollo-boost": "^0.4.9",
     "graphql-tag": "^2.11.0",
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.20.0",
-    "@graphql-codegen/typed-document-node": "^1.18.2",
     "@graphql-codegen/typescript": "^1.19.0",
     "@graphql-codegen/typescript-operations": "^1.17.13",
-    "@graphql-typed-document-node/core": "^3.1.0",
+    "@graphql-codegen/typescript-vue-apollo": "^2.3.1",
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^3.1.0",

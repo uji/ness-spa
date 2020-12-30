@@ -2,7 +2,7 @@
   <div>
     <h1>Hello world!</h1>
     <h2 v-if="loading">Now Loading...</h2>
-    <h2 v-if="error"> {{ error }} </h2>
+    <h2 v-if="error">{{ error }}</h2>
     <ul v-if="!loading && result.threads">
       <li v-for="thread in result.threads" :key="thread.id">
         {{ thread.id }} {{ thread.title }}

@@ -10,16 +10,6 @@ export default {
     // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   components: true,
-  mode: 'spa',
-  storybook: {
-    // Options
-  },
   buildModules: ['@nuxt/typescript-build'],
-  modules: ['@nuxtjs/apollo'],
   plugins: ['@/plugins/provide-apollo-client.js'],
-  apollo: {
-    clientConfigs: {
-      default: '~/apollo/apolloConfig.js',
-    },
-  },
 }
