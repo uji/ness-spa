@@ -12,11 +12,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, onMounted } from '@vue/composition-api'
 import { useThreadListQuery } from '@/generated/graphql'
+import { isSignedIn } from '@/types/firebase/authenticator'
 
 export default defineComponent({
-  setup() {
+  setup(_, context) {
+    const router = context.root.$router
+    onMounted(() => {
+      if (!isSignedIn()) {
+        router.push('/signin')
+      }
+    })
     const { result, loading, error } = useThreadListQuery()
 
     return {
