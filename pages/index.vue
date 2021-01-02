@@ -1,8 +1,10 @@
 <template>
   <div>
     <h1>Hello world!</h1>
-    <ul>
-      <li v-for="thread in threads" :key="thread.id">
+    <h2 v-if="loading">Now Loading...</h2>
+    <h2 v-if="error">{{ error }}</h2>
+    <ul v-if="!loading && result.threads">
+      <li v-for="thread in result.threads" :key="thread.id">
         {{ thread.id }} {{ thread.title }}
       </li>
     </ul>
@@ -10,26 +12,18 @@
 </template>
 
 <script lang="ts">
-import gql from 'graphql-tag'
+import { defineComponent } from '@vue/composition-api'
+import { useThreadListQuery } from '@/generated/graphql'
 
-const openThreadsQuery = gql`
-query{
-  threads(input: {closed: false}){
-    id
-    title
-    createdAt
-    updatedAt
-    closed
-  }
-}
-`
+export default defineComponent({
+  setup() {
+    const { result, loading, error } = useThreadListQuery()
 
-export default {
-  apollo: {
-    threads: {
-      prefetch: true,
-      query: openThreadsQuery,
-    },
+    return {
+      loading,
+      error,
+      result,
+    }
   },
-}
+})
 </script>
