@@ -15,11 +15,11 @@ module.exports = {
         primary: '#ffc738',
         secondary: '#4ab1ff',
         yellow: {
-          400: '#ffc738'
+          400: '#ffc738',
         },
         blue: {
-          500: '#4ab1ff'
-        }
+          500: '#4ab1ff',
+        },
       },
     },
   },
