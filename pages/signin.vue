@@ -1,11 +1,11 @@
 <template>
   <div class="p-8 max-w-xs mx-auto">
     <h1 class="text-3xl mb-6">Sign in</h1>
-    <p><Input v-model="email" placeholder="email" input-type="email" /></p>
-    <p>
+    <p class="mb-4"><Input v-model="email" placeholder="email" input-type="email" /></p>
+    <p class="mb-4">
       <Input v-model="password" placeholder="password" input-type="password" />
     </p>
-    <SecondaryButton text="Sign In" @click="signIn" />
+    <SecondaryButton text="Sign In" @click="signIn" class="w-full mb-4" />
     <Button text="Sign Out" @click="signOut" />
   </div>
 </template>
