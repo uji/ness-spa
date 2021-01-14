@@ -1,13 +1,11 @@
 <template>
-  <div class="p-8 max-w-xs mx-auto">
+  <form @submit.prevent="signIn" class="p-8 max-w-xs mx-auto">
     <h1 class="text-3xl mb-6">Sign in</h1>
-    <p class="mb-4"><Input v-model="email" placeholder="email" input-type="email" /></p>
-    <p class="mb-4">
-      <Input v-model="password" placeholder="password" input-type="password" />
-    </p>
-    <SecondaryButton text="Sign In" @click="signIn" class="w-full mb-4" />
-    <Button text="Sign Out" @click="signOut" />
-  </div>
+    <Input v-model="email" placeholder="email" input-type="email" class="mb-4" />
+    <Input v-model="password" placeholder="password" input-type="password" class="mb-4" />
+    <SecondaryButton type="submit" text="Sign In" class="w-full mb-4" />
+    <Button type="button" text="Sign Out" @click="signOut" />
+  </form>
 </template>
 
 <script lang="ts">
