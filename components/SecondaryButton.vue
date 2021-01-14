@@ -1,6 +1,6 @@
 <template>
   <button
-    class="px-5 pt-1 pb-2 m-1 font-bold rounded-full text-gray-800 bg-gray-100 ring-gray-300 ring-1 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50"
+    class="px-5 pt-1 pb-2 m-1 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50"
     @click="clickEvent"
   >
     {{ text }}

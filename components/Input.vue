@@ -1,7 +1,7 @@
 <template>
   <input
     v-model.trim="result"
-    class="border w-full p-2 mb-4 border-gray-300 rounded-md focus focus:outline-none focus:border-yellow-400"
+    class="border w-full p-2 mb-4 border-gray-300 rounded-md focus focus:outline-none focus:border-primary-400"
     :placeholder="placeholder"
     :type="inputType"
     @input="inputEvent"
@@ -26,7 +26,7 @@ export default defineComponent({
       default: 'text',
     },
   },
-  setup(props, { emit }) {
+  setup(_, { emit }) {
     const result = ref('')
 
     const inputEvent = () => {

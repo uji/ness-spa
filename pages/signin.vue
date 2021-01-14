@@ -5,8 +5,8 @@
     <p>
       <Input v-model="password" placeholder="password" input-type="password" />
     </p>
-    <Button @click="signIn" text="Sign In" />
-    <Button @click="signOut" text="Sign Out" />
+    <SecondaryButton text="Sign In" @click="signIn" />
+    <Button text="Sign Out" @click="signOut" />
   </div>
 </template>
 
