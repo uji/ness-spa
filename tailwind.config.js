@@ -9,6 +9,11 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        body: [
+          'Inter'
+        ]
+      },
       colors: {
         primary: {
           50: '#f9f5e6',
@@ -34,6 +39,7 @@ module.exports = {
           800: '#164c7c',
           900: '#133e60',
         },
+        black: '#202020'
       },
     },
   },
