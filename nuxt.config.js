@@ -10,6 +10,11 @@ export default {
     ],
     // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  buildModules: ['@nuxtjs/tailwindcss', '@nuxt/typescript-build'],
+  buildModules: ['@nuxtjs/tailwindcss', '@nuxt/typescript-build', '@nuxtjs/google-fonts'],
   plugins: ['@/plugins/provide-apollo-client.js'],
+  googleFonts: {
+    families: {
+      Inter: true
+    }
+  }
 }
