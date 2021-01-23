@@ -14,7 +14,7 @@ export default {
   plugins: ['@/plugins/provide-apollo-client.js'],
   googleFonts: {
     families: {
-      Inter: true
+      Inter: [300, 500, 700],
     }
   }
 }
