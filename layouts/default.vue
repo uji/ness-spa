@@ -1,3 +1,3 @@
 <template>
-  <nuxt class="font-default"/>
+  <nuxt class="font-default" />
 </template>

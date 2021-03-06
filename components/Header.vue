@@ -1,8 +1,20 @@
 <template>
-  <header class="h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50">
-    <img src="~assets/svg/ness-icon.svg" class="h-6 mx-8 my-auto"/>
-    <SecondaryButton v-if="!isSingedIn" @click="signIn" text="Sign in" class="ml-auto mr-8 my-auto"/>
-    <Button v-if="isSingedIn" @click="signOut" text="Sign out" class="ml-auto mr-8 my-auto"/>
+  <header
+    class="h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50"
+  >
+    <img src="~assets/svg/ness-icon.svg" class="h-6 mx-8 my-auto" />
+    <SecondaryButton
+      v-if="!isSingedIn"
+      text="Sign in"
+      class="ml-auto mr-8 my-auto"
+      @click="signIn"
+    />
+    <Button
+      v-if="isSingedIn"
+      text="Sign out"
+      class="ml-auto mr-8 my-auto"
+      @click="signOut"
+    />
   </header>
 </template>
 
@@ -18,7 +30,7 @@ export default defineComponent({
       root.$router.push('/signIn')
     }
 
-    const signOut = async () => {
+    const signOut = () => {
       authenticator.signOut()
       root.$router.push('/signIn')
     }

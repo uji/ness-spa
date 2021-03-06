@@ -1,7 +1,13 @@
 import firebase from "firebase/app"
 import 'firebase/auth'
 
-export class Authenticator {
+export interface IAuthenticator {
+  isSignIn: () => boolean
+  signInWithEmailPassword: (email: string, password: string) => void
+  signOut: () => void
+}
+
+export class Authenticator implements IAuthenticator{
   private firebaseAuth: firebase.auth.Auth
   constructor(auth: firebase.auth.Auth) {
     this.firebaseAuth = auth

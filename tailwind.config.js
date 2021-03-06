@@ -10,9 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'default': [
-          'Inter'
-        ]
+        default: ['Inter'],
       },
       colors: {
         primary: {
@@ -39,7 +37,7 @@ module.exports = {
           800: '#164c7c',
           900: '#133e60',
         },
-        black: '#202020'
+        black: '#202020',
       },
     },
   },
