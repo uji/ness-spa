@@ -1,7 +1,7 @@
 <template>
   <input
     v-model.trim="result"
-    class="font-body font-thin border w-full p-2 border-gray-300 rounded-md focus focus:outline-none focus:border-primary-400"
+    class="font-thin border w-full p-2 border-gray-300 rounded-md focus focus:outline-none focus:border-primary-400"
     :placeholder="placeholder"
     :type="inputType"
     @input="inputEvent"

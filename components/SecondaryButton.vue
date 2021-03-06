@@ -1,6 +1,6 @@
 <template>
   <button
-    class="transition font-body px-7 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50"
+    class="transition px-7 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50"
     @click="clickEvent"
   >
     {{ text }}
