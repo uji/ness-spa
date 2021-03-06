@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import { Authenticator } from '@/types/firebase/authenticator'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDoxQU1-q6IrXoo9lPHH8wLBGm4dr5BA2w',
@@ -13,4 +14,4 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig)
-export const auth = firebase.auth()
+export const authenticator = new Authenticator(firebase.auth())
