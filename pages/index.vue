@@ -13,13 +13,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from '@vue/composition-api'
+import { defineComponent, inject, onMounted } from '@vue/composition-api'
 import { useThreadListQuery } from '@/generated/graphql'
-import { authenticator } from '@/plugins/firebase'
+import {
+  AuthenticatorKey,
+  IAuthenticator,
+} from '@/types/firebase/authenticator'
 
 export default defineComponent({
   setup(_, context) {
     const router = context.root.$router
+
+    const authenticator = inject<IAuthenticator>(AuthenticatorKey)
+    if (!authenticator) {
+      throw new Error('authenticator is not provide')
+    }
+
     onMounted(() => {
       if (!authenticator.isSignIn()) {
         router.push('/signin')

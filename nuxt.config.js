@@ -15,7 +15,7 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/google-fonts',
   ],
-  plugins: ['@/plugins/provide-apollo-client.js'],
+  plugins: ['@/plugins/provide.ts'],
   googleFonts: {
     families: {
       Inter: [300, 500, 700],

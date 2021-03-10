@@ -19,11 +19,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
-import { authenticator } from '@/plugins/firebase'
+import { defineComponent, inject } from '@vue/composition-api'
+import {
+  AuthenticatorKey,
+  IAuthenticator,
+} from '@/types/firebase/authenticator'
 
 export default defineComponent({
   setup(_, { root }) {
+    const authenticator = inject<IAuthenticator>(AuthenticatorKey)
+    if (!authenticator) {
+      throw new Error('authenticator is not provide')
+    }
+
     const isSingedIn = authenticator.isSignIn
 
     const signIn = () => {
