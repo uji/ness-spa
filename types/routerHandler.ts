@@ -15,7 +15,7 @@ export class RouterHandler implements IRouterHandler {
 }
 
 export class MockRouterHandler implements IRouterHandler {
-  push(ctx: SetupContext, path: string) {
+  push(_ctx: SetupContext, path: string) {
     console.log('move this path: ', path)
   }
 }
