@@ -1,19 +1,45 @@
 import firebase from "firebase/app"
 import 'firebase/auth'
+import { InjectionKey } from '@vue/composition-api'
 
-export const isSignedIn = ():boolean => {
-  const idToken = localStorage.getItem('idToken')
-  return idToken !== null
+export interface IAuthenticator {
+  isSignIn: () => boolean
+  signInWithEmailPassword: (email: string, password: string) => void
+  signOut: () => void
 }
 
-export const signInWithEmailPassword = async(auth: firebase.auth.Auth, email: string, password: string) => {
-  const result = await auth.signInWithEmailAndPassword(email, password)
-  if (!result.user) return
-  const idToken = await result.user.getIdToken()
-  localStorage.setItem('idToken', idToken)
-}
+export const AuthenticatorKey: InjectionKey<IAuthenticator> = Symbol('IAuthenticator')
 
-export const signOut = async(auth: firebase.auth.Auth) => {
-  await auth.signOut()
-  localStorage.removeItem('idToken')
+const firebaseConfig = {
+  apiKey: 'AIzaSyDoxQU1-q6IrXoo9lPHH8wLBGm4dr5BA2w',
+  authDomain: 'ness-85856.firebaseapp.com',
+  databaseURL: 'https://ness-85856.firebaseio.com',
+  projectId: 'ness-85856',
+  storageBucket: 'ness-85856.appspot.com',
+  messagingSenderId: '410365716960',
+  appId: '1:410365716960:web:01fb9a4a9869527b2e2385',
+  measurementId: 'G-E34BNZV0JP'
+};
+
+export class Authenticator implements IAuthenticator{
+  private firebaseAuth: firebase.auth.Auth
+  constructor() {
+    firebase.initializeApp(firebaseConfig)
+    this.firebaseAuth = firebase.auth()
+  }
+
+  isSignIn ():boolean {
+    const idToken = localStorage.getItem('idToken')
+    return idToken !== null
+  }
+  signInWithEmailPassword = async(email: string, password: string) => {
+    const result = await this.firebaseAuth.signInWithEmailAndPassword(email, password)
+    if (!result.user) return
+    const idToken = await result.user.getIdToken()
+    localStorage.setItem('idToken', idToken)
+  }
+  signOut = async() => {
+    await this.firebaseAuth.signOut()
+    localStorage.removeItem('idToken')
+  }
 }

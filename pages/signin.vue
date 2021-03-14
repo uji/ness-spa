@@ -1,39 +1,51 @@
 <template>
-  <div>
-    <h1>Sign in</h1>
-    <p><input type="email" v-model.trim="email" placeholder="email" name="email" /></p>
-    <p><input type="text" v-model.trim="password" placeholder="password" name="password" /></p>
-    <button @click="signIn">Sign In</button>
-    <button @click="signOut">Sign Out</button>
+  <div class="p-8 max-w-xs mx-auto">
+    <img src="~assets/svg/ness-logo.svg" class="mx-auto h-12 pr-4 mb-8" />
+    <form @submit.prevent="signIn">
+      <h1 class="font-medium text-black text-3xl mb-6">Sign in</h1>
+      <Input
+        v-model="email"
+        placeholder="email"
+        input-type="email"
+        class="mb-4"
+      />
+      <Input
+        v-model="password"
+        placeholder="password"
+        input-type="password"
+        class="mb-4"
+      />
+      <SecondaryButton type="submit" text="Sign in" class="w-full mb-4" />
+    </form>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
-import { signInWithEmailPassword, signOut as signOutByAuthenticator } from '@/types/firebase/authenticator'
-import { auth } from '@/plugins/firebase'
+import { defineComponent, inject, ref } from '@vue/composition-api'
+import {
+  AuthenticatorKey,
+  IAuthenticator,
+} from '@/types/firebase/authenticator'
 
 export default defineComponent({
-  setup(_, context) {
+  setup(_, { root }) {
+    const authenticator = inject<IAuthenticator>(AuthenticatorKey)
+    if (!authenticator) {
+      throw new Error('authenticator is not provide')
+    }
+
     const email = ref('')
     const password = ref('')
 
-    const router = context.root.$router
-
-    const signIn = async() => {
-      await signInWithEmailPassword(auth, email.value, password.value)
-      router.push('/')
-    }
-
-    const signOut = async() => {
-      await signOutByAuthenticator(auth)
+    const signIn = async () => {
+      await authenticator.signInWithEmailPassword(email.value, password.value)
+      root.$router.push('/')
     }
 
     return {
       email,
       password,
       signIn,
-      signOut,
     }
   },
 })

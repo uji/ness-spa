@@ -1,4 +1,5 @@
 export default {
+  components: true,
   ssr: false,
   head: {
     title: 'ness-spa',
@@ -7,9 +8,17 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
   },
-  components: true,
-  buildModules: ['@nuxt/typescript-build'],
-  plugins: ['@/plugins/provide-apollo-client.js'],
+  buildModules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/typescript-build',
+    '@nuxtjs/google-fonts',
+  ],
+  plugins: ['@/plugins/provide.ts'],
+  googleFonts: {
+    families: {
+      Inter: [300, 500, 700],
+    },
+  },
 }
