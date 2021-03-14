@@ -6,6 +6,7 @@ import { AuthenticatorKey, Authenticator } from '@/types/firebase/authenticator'
 
 const apolloClient = new ApolloClient({
   uri: 'http://localhost:3000/query',
+  // uri: 'https://55m2930t23.execute-api.ap-northeast-1.amazonaws.com/prod/query',
   request: (operation) => {
     const idToken = localStorage.getItem('idToken')
     operation.setContext({
