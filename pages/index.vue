@@ -20,7 +20,6 @@ import { RouterHandlerKey } from '@/types/routerHandler'
 
 export default defineComponent({
   setup(_, context) {
-
     const authenticator = inject(AuthenticatorKey)
     if (!authenticator) {
       throw new Error('authenticator is not provide')

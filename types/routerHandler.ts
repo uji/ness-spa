@@ -4,16 +4,18 @@ export interface IRouterHandler {
   push: (ctx: SetupContext, path: string) => void
 }
 
-export const RouterHandlerKey: InjectionKey<IRouterHandler> = Symbol('IRouterHandler')
+export const RouterHandlerKey: InjectionKey<IRouterHandler> = Symbol(
+  'IRouterHandler'
+)
 
-export class RouterHandler implements IRouterHandler{
-  push (ctx: SetupContext, path: string){
+export class RouterHandler implements IRouterHandler {
+  push(ctx: SetupContext, path: string) {
     ctx.root.$router.push(path)
   }
 }
 
-export class MockRouterHandler implements IRouterHandler{
-  push (ctx: SetupContext, path: string){
-    console.log('move this path: ',path)
+export class MockRouterHandler implements IRouterHandler {
+  push(ctx: SetupContext, path: string) {
+    console.log('move this path: ', path)
   }
 }
