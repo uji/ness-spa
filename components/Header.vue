@@ -24,23 +24,28 @@ import {
   AuthenticatorKey,
   IAuthenticator,
 } from '@/types/firebase/authenticator'
+import { RouterHandlerKey } from '@/types/routerHandler'
 
 export default defineComponent({
-  setup(_, { root }) {
+  setup(_, context) {
     const authenticator = inject<IAuthenticator>(AuthenticatorKey)
     if (!authenticator) {
       throw new Error('authenticator is not provide')
+    }
+    const routerHandler = inject(RouterHandlerKey)
+    if (!routerHandler) {
+      throw new Error('routerHandler is not provide')
     }
 
     const isSingedIn = authenticator.isSignIn
 
     const signIn = () => {
-      root.$router.push('/signIn')
+      routerHandler.push(context, '/signIn')
     }
 
     const signOut = () => {
       authenticator.signOut()
-      root.$router.push('/signIn')
+      routerHandler.push(context, '/signIn')
     }
 
     return {

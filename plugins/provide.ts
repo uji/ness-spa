@@ -1,25 +1,19 @@
 import { Context } from '@nuxt/types'
-import { provide } from '@vue/composition-api'
+import { provide, InjectionKey } from '@vue/composition-api'
 import { DefaultApolloClient } from '@vue/apollo-composable'
-import ApolloClient from 'apollo-boost'
 import { AuthenticatorKey, Authenticator } from '@/types/firebase/authenticator'
+import { RouterHandlerKey, RouterHandler } from '@/types/routerHandler'
+import { apolloClient } from '@/types/apolloClient'
+import { useThreadListQuery } from '@/generated/graphql'
 
-const apolloClient = new ApolloClient({
-  uri: 'http://localhost:3000/query',
-  // uri: 'https://55m2930t23.execute-api.ap-northeast-1.amazonaws.com/prod/query',
-  request: (operation) => {
-    const idToken = localStorage.getItem('idToken')
-    operation.setContext({
-      headers: {
-        authorization: idToken ? `Bearer ${idToken}` : '',
-      },
-    })
-  },
-})
+export type GetThreadList = typeof useThreadListQuery
+export const getThreadListKey: InjectionKey<GetThreadList> = Symbol('getThreadList')
 
 export default function ({ app }: Context) {
   app.setup = () => {
     provide(AuthenticatorKey, new Authenticator())
     provide(DefaultApolloClient, apolloClient)
+    provide(getThreadListKey, useThreadListQuery)
+    provide(RouterHandlerKey, new RouterHandler)
   }
 }

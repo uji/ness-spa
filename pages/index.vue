@@ -14,27 +14,32 @@
 
 <script lang="ts">
 import { defineComponent, inject, onMounted } from '@vue/composition-api'
-import { useThreadListQuery } from '@/generated/graphql'
-import {
-  AuthenticatorKey,
-  IAuthenticator,
-} from '@/types/firebase/authenticator'
+import { AuthenticatorKey } from '@/types/firebase/authenticator'
+import { getThreadListKey } from '@/plugins/provide'
+import { RouterHandlerKey } from '@/types/routerHandler'
 
 export default defineComponent({
   setup(_, context) {
-    const router = context.root.$router
 
-    const authenticator = inject<IAuthenticator>(AuthenticatorKey)
+    const authenticator = inject(AuthenticatorKey)
     if (!authenticator) {
       throw new Error('authenticator is not provide')
+    }
+    const getThreadList = inject(getThreadListKey)
+    if (!getThreadList) {
+      throw new Error('getThreadList is not provide')
+    }
+    const routerHandler = inject(RouterHandlerKey)
+    if (!routerHandler) {
+      throw new Error('routerHandler is not provide')
     }
 
     onMounted(() => {
       if (!authenticator.isSignIn()) {
-        router.push('/signin')
+        routerHandler.push(context, '/signin')
       }
     })
-    const { result, loading, error } = useThreadListQuery()
+    const { result, loading, error } = getThreadList()
 
     return {
       loading,
