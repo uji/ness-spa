@@ -17,7 +17,7 @@ export default {
   ],
   plugins: ['@/plugins/provide.ts'],
   env: {
-    dryMode: process.env.DRY_MODE || '0'
+    dryMode: process.env.DRY_MODE || '0',
   },
   googleFonts: {
     families: {
