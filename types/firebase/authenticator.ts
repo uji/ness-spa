@@ -4,8 +4,8 @@ import { InjectionKey } from '@vue/composition-api'
 
 export interface IAuthenticator {
   isSignIn: () => boolean
-  signInWithEmailPassword: (email: string, password: string) => void
-  signOut: () => void
+  signInWithEmailPassword: (email: string, password: string) => Promise<void>
+  signOut: () => Promise<void>
 }
 
 export const AuthenticatorKey: InjectionKey<IAuthenticator> = Symbol('IAuthenticator')
