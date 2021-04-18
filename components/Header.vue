@@ -4,13 +4,13 @@
   >
     <img src="~assets/svg/ness-icon.svg" class="h-6 mx-8 my-auto" />
     <SecondaryButton
-      v-if="!isSingedIn"
+      v-if="!isSignedIn"
       text="Sign in"
       class="ml-auto mr-8 my-auto"
       @click="signIn"
     />
     <Button
-      v-if="isSingedIn"
+      v-if="isSignedIn"
       text="Sign out"
       class="ml-auto mr-8 my-auto"
       @click="signOut"
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from '@vue/composition-api'
+import { defineComponent, inject, ref } from '@vue/composition-api'
 import {
   AuthenticatorKey,
   IAuthenticator,
@@ -37,7 +37,7 @@ export default defineComponent({
       throw new Error('routerHandler is not provide')
     }
 
-    const isSingedIn = authenticator.isSignIn
+    const isSignedIn = ref(authenticator.isSignIn())
 
     const signIn = () => {
       routerHandler.push(context, '/signIn')
@@ -46,10 +46,11 @@ export default defineComponent({
     const signOut = () => {
       authenticator.signOut()
       routerHandler.push(context, '/signIn')
+      isSignedIn.value = authenticator.isSignIn()
     }
 
     return {
-      isSingedIn,
+      isSignedIn,
       signIn,
       signOut,
     }

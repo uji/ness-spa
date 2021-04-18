@@ -16,6 +16,9 @@ export default {
     '@nuxtjs/google-fonts',
   ],
   plugins: ['@/plugins/provide.ts'],
+  env: {
+    dryMode: process.env.DRY_MODE || '0',
+  },
   googleFonts: {
     families: {
       Inter: [300, 500, 700],

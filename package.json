@@ -8,7 +8,7 @@
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "fmt": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "story": "nuxt-ts storybook --host '0.0.0.0' -p 8080",
+    "story": "env DRY_MODE=1 nuxt-ts storybook --host '0.0.0.0' -p 8080",
     "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {

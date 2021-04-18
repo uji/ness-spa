@@ -4,8 +4,8 @@ import { InjectionKey } from '@vue/composition-api'
 
 export interface IAuthenticator {
   isSignIn: () => boolean
-  signInWithEmailPassword: (email: string, password: string) => void
-  signOut: () => void
+  signInWithEmailPassword: (email: string, password: string) => Promise<void>
+  signOut: () => Promise<void>
 }
 
 export const AuthenticatorKey: InjectionKey<IAuthenticator> = Symbol('IAuthenticator')
@@ -41,5 +41,26 @@ export class Authenticator implements IAuthenticator{
   signOut = async() => {
     await this.firebaseAuth.signOut()
     localStorage.removeItem('idToken')
+  }
+}
+
+export class DryAuthenticator implements IAuthenticator{
+  private signedIn: boolean
+  constructor() {
+    this.signedIn = true
+  }
+
+  isSignIn ():boolean {
+    return this.signedIn
+  }
+  signInWithEmailPassword = async(email: string, password: string) => {
+    console.log('called signInWithEmailPassword')
+    console.log('  email: ', email)
+    console.log('  password: ', password)
+    this.signedIn = true
+  }
+  signOut = async() => {
+    console.log('called signOut')
+    this.signedIn = false
   }
 }
