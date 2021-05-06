@@ -6,12 +6,12 @@ export default {
 export const all = () => `
 <ul>
   <li>
-    <p>normal</p>
-    <Button text="button text" />
+    <p>primary</p>
+    <Button design="primary" text="button text" />
   </li>
   <li>
     <p>secondary</p>
-    <SecondaryButton text="button text" />
+    <Button design="secondary" text="button text" />
   </li>
 </ul>
 `

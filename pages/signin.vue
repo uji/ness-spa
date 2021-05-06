@@ -15,7 +15,12 @@
         input-type="password"
         class="mb-4"
       />
-      <SecondaryButton type="submit" text="Sign in" class="w-full mb-4" />
+      <Button
+        design="secondary"
+        type="submit"
+        text="Sign in"
+        class="w-full mb-4"
+      />
     </form>
   </div>
 </template>
