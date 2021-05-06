@@ -5,7 +5,7 @@
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "lint:js": "eslint --ext .ts,.vue --ignore-path .gitignore .",
+    "lint:ts": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:ts",
     "fmt": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
     "story": "env DRY_MODE=1 nuxt-ts storybook --host '0.0.0.0' -p 8080",
