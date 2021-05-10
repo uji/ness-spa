@@ -1,8 +1,5 @@
 <template>
-  <button
-    class="transition px-7 py-2 font-bold rounded-full text-gray-600 bg-gray-100 ring-gray-300 ring-1 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50"
-    @click="clickEvent"
-  >
+  <button :class="design" @click="clickEvent">
     {{ text }}
   </button>
 </template>
@@ -16,6 +13,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    design: {
+      type: String,
+      default: 'primary',
+    },
   },
   setup(_, { emit }) {
     const clickEvent = () => {
@@ -27,3 +28,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.primary {
+  @apply transition px-7 py-2 font-bold rounded-full text-gray-600 bg-gray-100 ring-gray-300 ring-1 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50;
+}
+.secondary {
+  @apply transition px-7 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+}
+</style>

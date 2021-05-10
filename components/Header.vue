@@ -3,14 +3,16 @@
     class="h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50"
   >
     <img src="~assets/svg/ness-icon.svg" class="h-6 mx-8 my-auto" />
-    <SecondaryButton
+    <Button
       v-if="!isSignedIn"
       text="Sign in"
+      design="primary"
       class="ml-auto mr-8 my-auto"
       @click="signIn"
     />
     <Button
       v-if="isSignedIn"
+      design="secondary"
       text="Sign out"
       class="ml-auto mr-8 my-auto"
       @click="signOut"
