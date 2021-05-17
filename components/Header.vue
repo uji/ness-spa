@@ -1,6 +1,6 @@
 <template>
   <header
-    class="h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50"
+    class="sticky bg-white w-screen h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50"
   >
     <img src="~assets/svg/ness-icon.svg" class="h-6 mx-8 my-auto" />
     <Button
