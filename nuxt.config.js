@@ -24,4 +24,14 @@ export default {
       Inter: [300, 500, 700],
     },
   },
+  loading: {
+    continuous: true,
+    color: 'yellow',
+    height: '3px',
+  },
+  loadingIndicator: {
+    name: 'three-bounce',
+    color: 'yellow',
+    background: 'white',
+  },
 }
