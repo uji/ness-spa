@@ -7,7 +7,9 @@
     "start": "nuxt-ts start",
     "lint:ts": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:ts",
-    "fmt": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
+    "fmt": "run-p fmt:*",
+    "fmt:eslint-prettier": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
+    "fmt:stylelint": "stylelint './**/*.{css,vue}' --fix",
     "story": "env DRY_MODE=1 nuxt-ts storybook --host '0.0.0.0' -p 9090",
     "codegen": "graphql-codegen --config codegen.yml"
   },
@@ -35,13 +37,17 @@
     "@nuxtjs/storybook": "^3.3.0",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "@tailwindcss/postcss7-compat": "^2.0.2",
-    "autoprefixer": "^9",
+    "autoprefixer": "^10.2.5",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "npm-run-all": "^4.1.5",
     "postcss": "^7",
     "prettier": "^2.1.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
