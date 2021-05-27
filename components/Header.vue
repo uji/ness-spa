@@ -2,7 +2,7 @@
   <header
     class="sticky bg-white w-screen h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50"
   >
-    <img src="~assets/svg/ness-icon.svg" class="h-6 mx-8 my-auto" />
+    <img src="~assets/svg/ness-logo.svg" class="h-8 mx-8 my-auto" />
     <Button
       v-if="!isSignedIn"
       text="Sign in"
