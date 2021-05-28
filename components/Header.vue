@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky bg-white w-screen h-14 overflow-hidden flex flex-row ring-2 ring-gray-300 ring-opacity-50"
+    class="sticky bg-white w-screen h-14 overflow-hidden flex flex-row items-center ring-2 ring-gray-300 ring-opacity-50"
   >
     <img src="~assets/svg/ness-logo.svg" class="h-8 mx-8 my-auto" />
     <Button
@@ -14,9 +14,10 @@
       v-if="isSignedIn"
       design="secondary"
       text="Sign out"
-      class="ml-auto mr-8 my-auto"
+      class="ml-auto mr-4 my-auto"
       @click="signOut"
     />
+    <img class="w-12 h-12 mr-8" src="~assets/images/uji.jpg" alt="user icon" />
   </header>
 </template>
 
