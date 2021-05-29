@@ -2,6 +2,23 @@
   <div>
     <Header />
     <main class="w-4/5 md:max-w-screen-lg mx-auto">
+      <div
+        class="flex flex-col md:flex-row items-end md:items-end md:justify-end"
+      >
+        <div class="p-2 pr-4 w-40 content-end">
+          <p class="">アクションプラン</p>
+          <div class="flex items-center h-8">
+            <input id="checkbox" type="checkbox" class="mr-1" />
+            <label for="checkbox" class="mr-2">あり</label>
+            <input id="checkbox" type="checkbox" class="mr-1" />
+            <label for="checkbox" class="mr-2">なし</label>
+          </div>
+        </div>
+        <div class="p-2 w-48">
+          <p class="mb-2 text-right text-gray-500">絞り込み</p>
+          <Input class="rounded-full h-8"></Input>
+        </div>
+      </div>
       <p v-if="loading">Now Loading...</p>
       <p v-if="error">{{ error }}</p>
       <div v-if="!loading && result.threads">
@@ -10,7 +27,7 @@
           :key="thread.id"
           class="flex items-center mt-2 border px-4 py-2 rounded"
         >
-          <div class="mr-4">
+          <div class="mr-4 tracking-wide">
             {{ thread.title }}
           </div>
           <div
