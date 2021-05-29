@@ -17,7 +17,11 @@
       class="ml-auto mr-4 my-auto"
       @click="signOut"
     />
-    <img class="w-12 h-12 mr-8" src="~assets/images/uji.jpg" alt="user icon" />
+    <img
+      class="w-10 h-10 mr-8 cursor-pointer"
+      src="~assets/images/uji.jpg"
+      alt="user icon"
+    />
   </header>
 </template>
 
