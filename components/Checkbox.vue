@@ -1,0 +1,49 @@
+<template>
+  <label :for="id" class="mr-2 cursor-pointer">
+    <input
+      :id="id"
+      :name="name"
+      :value="value"
+      type="checkbox"
+      class="mr-1"
+    />{{ text }}</label
+  >
+</template>
+
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
+export default defineComponent({
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: Array,
+      required: true,
+    },
+    text: {
+      type: String,
+      default: '',
+    },
+  },
+  // setup(_, context) {
+  //   onMounted(() => {
+  //     if (!authenticator.isSignIn()) {
+  //       routerHandler.push(context, '/signin')
+  //     }
+  //   })
+  //   const { result, loading, error } = getThreadList()
+
+  //   return {
+  //     loading,
+  //     error,
+  //     result,
+  //   }
+  // },
+})
+</script>

@@ -31,10 +31,10 @@ export default defineComponent({
 
 <style scoped>
 .primary {
-  @apply transition px-7 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+  @apply px-7 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 transition hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
 }
 
 .secondary {
-  @apply transition px-7 py-2 font-bold rounded-full text-gray-600 bg-gray-100 ring-gray-300 ring-1 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50;
+  @apply px-7 py-2 font-bold rounded-full text-gray-600 bg-gray-100 ring-gray-300 ring-1 transition hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50;
 }
 </style>
