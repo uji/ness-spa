@@ -11,7 +11,7 @@
     "fmt:eslint-prettier": "eslint --fix --ext .ts,.vue --ignore-path .gitignore .",
     "fmt:stylelint": "stylelint './**/*.{css,vue}' --fix",
     "story": "env DRY_MODE=1 nuxt-ts storybook --host '0.0.0.0' -p 9090",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen:gen": "graphql-codegen --config codegen.yml && yarn fmt"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
