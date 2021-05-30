@@ -4,5 +4,5 @@ export default {
 }
 
 export const normal = () => `
-<Thread title="sample text" />
+<Thread title="sample text" class="border" />
 `

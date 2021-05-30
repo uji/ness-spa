@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center mt-2 border px-4 py-2 rounded">
+  <div class="flex items-center px-4 py-2">
     <div class="mr-4 tracking-wide">
       {{ title }}
     </div>
