@@ -1,3 +1,6 @@
 <template>
-  <nuxt class="font-default" />
+  <div class="font-default">
+    <Header />
+    <nuxt />
+  </div>
 </template>

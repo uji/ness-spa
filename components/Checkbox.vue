@@ -31,19 +31,5 @@ export default defineComponent({
       default: '',
     },
   },
-  // setup(_, context) {
-  //   onMounted(() => {
-  //     if (!authenticator.isSignIn()) {
-  //       routerHandler.push(context, '/signin')
-  //     }
-  //   })
-  //   const { result, loading, error } = getThreadList()
-
-  //   return {
-  //     loading,
-  //     error,
-  //     result,
-  //   }
-  // },
 })
 </script>
