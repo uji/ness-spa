@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 pb-0">
+  <div>
     <p class="">アクションプラン</p>
     <div class="flex items-center h-8">
       <Checkbox

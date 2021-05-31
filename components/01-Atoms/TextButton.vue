@@ -1,6 +1,6 @@
 <template>
   <div
-    class="inline-block mr-2 p-2 cursor-pointer text-gray-500 hover:text-gray-800"
+    class="inline-block mr-2 cursor-pointer text-gray-500 transition hover:text-gray-800"
   >
     {{ text }}
   </div>

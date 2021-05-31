@@ -1,6 +1,6 @@
 <template>
   <div
-    class="inline-block py-1 px-2 border border-gray-300 rounded cursor-pointer hover:bg-gray-200"
+    class="inline-block py-1 px-2 border border-gray-300 rounded cursor-pointer transition hover:bg-gray-200"
   >
     <div class="flex">
       <svg
