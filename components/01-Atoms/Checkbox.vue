@@ -23,7 +23,7 @@ export default defineComponent({
       required: true,
     },
     value: {
-      type: Array,
+      type: String,
       required: true,
     },
     text: {

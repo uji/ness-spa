@@ -27,7 +27,7 @@ import { defineComponent } from '@vue/composition-api'
 export default defineComponent({
   props: {
     goodNum: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
