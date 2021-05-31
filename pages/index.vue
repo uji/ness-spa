@@ -38,7 +38,7 @@ export default defineComponent({
         routerHandler.push(context, '/signin')
       }
     })
-    const { result, loading, error } = getThreadList()
+    const { result, loading, error } = getThreadList({ closed: false })
 
     return {
       loading,

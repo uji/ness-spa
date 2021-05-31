@@ -42,8 +42,10 @@ export type Thread = Node & {
 }
 
 export type GetThreadsInput = {
-  offsetTime?: Maybe<Scalars['DateTime']>
   closed?: Maybe<Scalars['Boolean']>
+  size?: Maybe<Scalars['Int']>
+  from?: Maybe<Scalars['Int']>
+  word?: Maybe<Scalars['String']>
 }
 
 export type Query = {
@@ -91,9 +93,47 @@ export type MutationCloseThreadArgs = {
   input: CloseThread
 }
 
-export type ThreadListQueryVariables = Exact<{ [key: string]: never }>
+export type CreateThreadMutationVariables = Exact<{
+  title: Scalars['String']
+}>
 
-export type ThreadListQuery = { __typename?: 'Query' } & {
+export type CreateThreadMutation = { __typename?: 'Mutation' } & {
+  createThread: { __typename?: 'Thread' } & Pick<
+    Thread,
+    'title' | 'closed' | 'updatedAt' | 'id'
+  >
+}
+
+export type OpenThreadMutationVariables = Exact<{
+  id: Scalars['ID']
+}>
+
+export type OpenThreadMutation = { __typename?: 'Mutation' } & {
+  openThread: { __typename?: 'Thread' } & Pick<
+    Thread,
+    'title' | 'closed' | 'updatedAt' | 'id'
+  >
+}
+
+export type CloseThreadMutationVariables = Exact<{
+  id: Scalars['ID']
+}>
+
+export type CloseThreadMutation = { __typename?: 'Mutation' } & {
+  closeThread: { __typename?: 'Thread' } & Pick<
+    Thread,
+    'title' | 'closed' | 'updatedAt' | 'id'
+  >
+}
+
+export type ThreadsQueryVariables = Exact<{
+  closed?: Maybe<Scalars['Boolean']>
+  size?: Maybe<Scalars['Int']>
+  from?: Maybe<Scalars['Int']>
+  word?: Maybe<Scalars['String']>
+}>
+
+export type ThreadsQuery = { __typename?: 'Query' } & {
   threads: Array<
     { __typename?: 'Thread' } & Pick<
       Thread,
@@ -102,9 +142,159 @@ export type ThreadListQuery = { __typename?: 'Query' } & {
   >
 }
 
-export const ThreadListDocument = gql`
-  query threadList {
-    threads(input: { closed: false }) {
+export const CreateThreadDocument = gql`
+  mutation createThread($title: String!) {
+    createThread(input: { title: $title }) {
+      title
+      closed
+      updatedAt
+      id
+    }
+  }
+`
+
+/**
+ * __useCreateThreadMutation__
+ *
+ * To run a mutation, you first call `useCreateThreadMutation` within a Vue component and pass it any options that fit your needs.
+ * When your component renders, `useCreateThreadMutation` returns an object that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - Several other properties: https://v4.apollo.vuejs.org/api/use-mutation.html#return
+ *
+ * @param options that will be passed into the mutation, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/mutation.html#options;
+ *
+ * @example
+ * const { mutate, loading, error, onDone } = useCreateThreadMutation({
+ *   variables: {
+ *     title: // value for 'title'
+ *   },
+ * });
+ */
+export function useCreateThreadMutation(
+  options:
+    | VueApolloComposable.UseMutationOptions<
+        CreateThreadMutation,
+        CreateThreadMutationVariables
+      >
+    | ReactiveFunction<
+        VueApolloComposable.UseMutationOptions<
+          CreateThreadMutation,
+          CreateThreadMutationVariables
+        >
+      >
+) {
+  return VueApolloComposable.useMutation<
+    CreateThreadMutation,
+    CreateThreadMutationVariables
+  >(CreateThreadDocument, options)
+}
+export type CreateThreadMutationCompositionFunctionResult = VueApolloComposable.UseMutationReturn<
+  CreateThreadMutation,
+  CreateThreadMutationVariables
+>
+export const OpenThreadDocument = gql`
+  mutation openThread($id: ID!) {
+    openThread(input: { threadID: $id }) {
+      title
+      closed
+      updatedAt
+      id
+    }
+  }
+`
+
+/**
+ * __useOpenThreadMutation__
+ *
+ * To run a mutation, you first call `useOpenThreadMutation` within a Vue component and pass it any options that fit your needs.
+ * When your component renders, `useOpenThreadMutation` returns an object that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - Several other properties: https://v4.apollo.vuejs.org/api/use-mutation.html#return
+ *
+ * @param options that will be passed into the mutation, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/mutation.html#options;
+ *
+ * @example
+ * const { mutate, loading, error, onDone } = useOpenThreadMutation({
+ *   variables: {
+ *     id: // value for 'id'
+ *   },
+ * });
+ */
+export function useOpenThreadMutation(
+  options:
+    | VueApolloComposable.UseMutationOptions<
+        OpenThreadMutation,
+        OpenThreadMutationVariables
+      >
+    | ReactiveFunction<
+        VueApolloComposable.UseMutationOptions<
+          OpenThreadMutation,
+          OpenThreadMutationVariables
+        >
+      >
+) {
+  return VueApolloComposable.useMutation<
+    OpenThreadMutation,
+    OpenThreadMutationVariables
+  >(OpenThreadDocument, options)
+}
+export type OpenThreadMutationCompositionFunctionResult = VueApolloComposable.UseMutationReturn<
+  OpenThreadMutation,
+  OpenThreadMutationVariables
+>
+export const CloseThreadDocument = gql`
+  mutation closeThread($id: ID!) {
+    closeThread(input: { threadID: $id }) {
+      title
+      closed
+      updatedAt
+      id
+    }
+  }
+`
+
+/**
+ * __useCloseThreadMutation__
+ *
+ * To run a mutation, you first call `useCloseThreadMutation` within a Vue component and pass it any options that fit your needs.
+ * When your component renders, `useCloseThreadMutation` returns an object that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - Several other properties: https://v4.apollo.vuejs.org/api/use-mutation.html#return
+ *
+ * @param options that will be passed into the mutation, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/mutation.html#options;
+ *
+ * @example
+ * const { mutate, loading, error, onDone } = useCloseThreadMutation({
+ *   variables: {
+ *     id: // value for 'id'
+ *   },
+ * });
+ */
+export function useCloseThreadMutation(
+  options:
+    | VueApolloComposable.UseMutationOptions<
+        CloseThreadMutation,
+        CloseThreadMutationVariables
+      >
+    | ReactiveFunction<
+        VueApolloComposable.UseMutationOptions<
+          CloseThreadMutation,
+          CloseThreadMutationVariables
+        >
+      >
+) {
+  return VueApolloComposable.useMutation<
+    CloseThreadMutation,
+    CloseThreadMutationVariables
+  >(CloseThreadDocument, options)
+}
+export type CloseThreadMutationCompositionFunctionResult = VueApolloComposable.UseMutationReturn<
+  CloseThreadMutation,
+  CloseThreadMutationVariables
+>
+export const ThreadsDocument = gql`
+  query threads($closed: Boolean, $size: Int, $from: Int, $word: String) {
+    threads(input: { closed: $closed, size: $size, from: $from, word: $word }) {
       id
       title
       createdAt
@@ -115,42 +305,44 @@ export const ThreadListDocument = gql`
 `
 
 /**
- * __useThreadListQuery__
+ * __useThreadsQuery__
  *
- * To run a query within a Vue component, call `useThreadListQuery` and pass it any options that fit your needs.
- * When your component renders, `useThreadListQuery` returns an object from Apollo Client that contains result, loading and error properties
+ * To run a query within a Vue component, call `useThreadsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useThreadsQuery` returns an object from Apollo Client that contains result, loading and error properties
  * you can use to render your UI.
  *
+ * @param variables that will be passed into the query
  * @param options that will be passed into the query, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/query.html#options;
  *
  * @example
- * const { result, loading, error } = useThreadListQuery();
+ * const { result, loading, error } = useThreadsQuery({
+ *   closed: // value for 'closed'
+ *   size: // value for 'size'
+ *   from: // value for 'from'
+ *   word: // value for 'word'
+ * });
  */
-export function useThreadListQuery(
+export function useThreadsQuery(
+  variables:
+    | ThreadsQueryVariables
+    | VueCompositionApi.Ref<ThreadsQueryVariables>
+    | ReactiveFunction<ThreadsQueryVariables> = {},
   options:
-    | VueApolloComposable.UseQueryOptions<
-        ThreadListQuery,
-        ThreadListQueryVariables
-      >
+    | VueApolloComposable.UseQueryOptions<ThreadsQuery, ThreadsQueryVariables>
     | VueCompositionApi.Ref<
-        VueApolloComposable.UseQueryOptions<
-          ThreadListQuery,
-          ThreadListQueryVariables
-        >
+        VueApolloComposable.UseQueryOptions<ThreadsQuery, ThreadsQueryVariables>
       >
     | ReactiveFunction<
-        VueApolloComposable.UseQueryOptions<
-          ThreadListQuery,
-          ThreadListQueryVariables
-        >
+        VueApolloComposable.UseQueryOptions<ThreadsQuery, ThreadsQueryVariables>
       > = {}
 ) {
-  return VueApolloComposable.useQuery<
-    ThreadListQuery,
-    ThreadListQueryVariables
-  >(ThreadListDocument, {}, options)
+  return VueApolloComposable.useQuery<ThreadsQuery, ThreadsQueryVariables>(
+    ThreadsDocument,
+    variables,
+    options
+  )
 }
-export type ThreadListQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<
-  ThreadListQuery,
-  ThreadListQueryVariables
+export type ThreadsQueryCompositionFunctionResult = VueApolloComposable.UseQueryReturn<
+  ThreadsQuery,
+  ThreadsQueryVariables
 >

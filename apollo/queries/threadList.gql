@@ -1,9 +1,0 @@
-query threadList {
-  threads(input: {closed: false}){
-    id
-    title
-    createdAt
-    updatedAt
-    closed
-  }
-}
