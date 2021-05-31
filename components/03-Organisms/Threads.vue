@@ -7,7 +7,7 @@
         <text-button text="Open" class="content-start"></text-button>
         <text-button text="Close" class="content-start"></text-button>
       </div>
-      <ActionPlan />
+      <!-- <ActionPlan /> -->
       <NarrowingDown />
     </div>
     <div v-for="thread in threads" :key="thread.id">

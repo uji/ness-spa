@@ -62,18 +62,20 @@ export class DryAuthenticator implements IAuthenticator {
   }
 
   signInWithEmailPassword = async (email: string, password: string) => {
-    await setTimeout(() => {
+    await new Promise<void>((resolve) => {
       console.log('called signInWithEmailPassword')
       console.log('  email: ', email)
       console.log('  password: ', password)
       this.signedIn = true
-    }, 100)
+      resolve()
+    })
   }
 
   signOut = async () => {
-    await setTimeout(() => {
+    await new Promise<void>((resolve) => {
       console.log('called signOut')
       this.signedIn = false
-    }, 100)
+      resolve()
+    })
   }
 }

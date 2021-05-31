@@ -1,9 +1,9 @@
 <template>
-  <div class="flex items-center px-4 py-2 border rounded">
+  <div class="flex justify-between items-center px-4 py-2 border rounded">
     <div class="mr-4 tracking-wide">
       {{ title }}
     </div>
-    <GoodButton good-num="10" class="ml-auto" />
+    <GoodButton good-num="10" />
   </div>
 </template>
 
