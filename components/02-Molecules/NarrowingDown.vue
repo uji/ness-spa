@@ -1,7 +1,7 @@
 <template>
-  <div class="w-48">
+  <div class="w-52">
     <p class="mb-2 text-right text-gray-500">絞り込み</p>
-    <Input class="h-8 rounded-full" placeholder="search" type="text"></Input>
+    <SearchInput />
   </div>
 </template>
 
