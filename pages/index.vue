@@ -10,14 +10,17 @@
       </div>
     </main>
     <!-- <CreateThreadModal /> -->
-    <button class="border rounded-md">createThread</button>
+    <button class="border rounded-md" @click="createThread">
+      createThread
+    </button>
+    {{ res }}
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, onMounted } from '@vue/composition-api'
+import { defineComponent, inject, onMounted, ref } from '@vue/composition-api'
 import { AuthenticatorKey } from '@/types/firebase/authenticator'
-import { getThreadsKey } from '@/plugins/provide'
+import { getThreadsKey, createThreadKey } from '@/plugins/provide'
 import { RouterHandlerKey } from '@/types/routerHandler'
 
 export default defineComponent({
@@ -35,6 +38,17 @@ export default defineComponent({
       throw new Error('routerHandler is not provide')
     }
 
+    const createThreadFunc = inject(createThreadKey)
+    if (!createThreadFunc) {
+      throw new Error('getThreads is not provide')
+    }
+    const res = ref({})
+    res.value = createThreadFunc({
+      variables: {
+        title: 'sample',
+      },
+    })
+
     onMounted(() => {
       if (!authenticator.isSignIn()) {
         routerHandler.push(context, '/signin')
@@ -46,6 +60,8 @@ export default defineComponent({
       loading,
       error,
       result,
+      // createThread,
+      res,
     }
   },
 })
