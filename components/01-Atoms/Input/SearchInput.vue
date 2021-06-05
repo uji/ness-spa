@@ -1,17 +1,13 @@
 <template>
-  <div
-    class="flex items-center p-2 border border-gray-300 rounded-full focus focus:outline-none focus:border-primary-400"
-  >
+  <div class="flex">
     <input
-      v-model.trim="result"
-      class="flex-grow font-thin focus:outline-none"
+      class="flex-grow font-thin p-1 pl-3 pr-8 border rounded-full focus:outline-none focus:border-primary-400"
       placeholder="キーワードを入力..."
-      type="text"
-      @input="inputEvent"
+      type="search"
     />
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-4 w-4 fill-stroke text-gray-600 cursor-pointer"
+      class="self-center h-4 w-4 -ml-6 mr-2 fill-stroke text-gray-600 cursor-pointer"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"

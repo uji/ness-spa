@@ -1,8 +1,8 @@
 import '@/assets/css/tailwind.css'
 export default {
-  title: 'CreateThreadButton',
+  title: 'Modal',
 }
 
 export const normal = () => `
-<CreateThreadButton />
+<Modal title="title"/>
 `

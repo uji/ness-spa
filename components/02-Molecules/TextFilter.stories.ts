@@ -1,8 +1,8 @@
 import '@/assets/css/tailwind.css'
 export default {
-  title: 'Narrowing Doawn',
+  title: 'Text Filter',
 }
 
 export const all = () => `
-<NarrowingDown />
+<TextFilter />
 `
