@@ -22,18 +22,18 @@
         <slot name="contents">contents</slot>
       </div>
       <div class="flex justify-end p-4">
-        <button
+        <Button
           v-if="closeButton !== ''"
           text="close"
-          design="secondary"
-          class="mr-2 p-2 border rounded-xl hover:bg-gray-100 text-gray-500 hover:text-gray-800 focus:outline-none"
+          design="secondary_s"
+          class="mr-2"
           @click="clickEvent(false)"
         >
           {{ closeButton }}
-        </button>
-        <GorgeousButton
+        </Button>
+        <Button
           v-if="gorgeousButton !== ''"
-          class="p-2"
+          design="primary_s"
           :text="gorgeousButton"
           @click="clickEvent(true)"
         />

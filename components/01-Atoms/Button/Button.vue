@@ -34,7 +34,15 @@ export default defineComponent({
   @apply px-7 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 transition hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
 }
 
+.primary_s {
+  @apply px-4 py-2 font-bold rounded-full text-white ring-1 bg-secondary-400 ring-gray-300 transition hover:bg-secondary-500 focus:ring-secondary-600 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+}
+
 .secondary {
   @apply px-7 py-2 font-bold rounded-full text-gray-600 bg-gray-100 ring-gray-300 ring-1 transition hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50;
+}
+
+.secondary_s {
+  @apply px-4 py-2 font-bold rounded-full text-gray-600 bg-gray-100 ring-gray-300 ring-1 transition hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-opacity-50;
 }
 </style>

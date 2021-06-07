@@ -27,9 +27,9 @@ export default defineComponent({
     const title = ref('')
     const clickEvent = (flg: Boolean) => {
       if (flg) {
-        emit('hidden')
-      } else {
         emit('ok', title.value)
+      } else {
+        emit('hidden')
       }
     }
     return {

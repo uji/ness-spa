@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="flex flex-col md:flex-row items-end md:items-end md:justify-end divide-y-2 md:divide-y-0"
+      class="flex flex-col md:flex-row items-end md:items-end md:justify-end"
     >
       <div class="flex">
         <TextButton text="Open"></TextButton>
@@ -9,11 +9,11 @@
       </div>
       <!-- <ActionPlan class="mr-2" /> -->
       <TextFilter class="mr-2" />
-      <GorgeousButton text="New" class="mt-2" @click="openModal" />
+      <Button design="primary_s" text="New" class="mt-2" @click="openModal" />
       <CreateThreadModal
         v-if="showModal"
         @hidden="closeModal"
-        @ok="closeModal"
+        @ok="mutate({ title: $event })"
       />
     </div>
     <div v-for="thread in threads" :key="thread.id">
@@ -34,10 +34,15 @@ export default {
     },
   },
   setup() {
-    const createThread = inject(createThreadKey)
-    if (!createThread) {
+    const createThreadFunc = inject(createThreadKey)
+    if (!createThreadFunc) {
       throw new Error('createThread is not provide')
     }
+    const { mutate } = createThreadFunc({
+      variables: {
+        title: 'ダークライ強い',
+      },
+    })
     const showModal = ref(false)
     const openModal = () => {
       showModal.value = true
@@ -50,6 +55,8 @@ export default {
       showModal,
       openModal,
       closeModal,
+      mutate,
+      // createThread,
       // createThreadFunc,
       // result,
     }
